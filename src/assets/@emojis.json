@@ -120,6 +120,12 @@
     "tags": ["cat", "dizzy", "spiral eyes"]
   },
   {
+    "name": "trans-hatching-chick",
+    "display": "trans hatching chick",
+    "alt": "A trans pride-themed hatching chick emoji. The chick is yellow and sitting in their cracked egg and facing the viewer. The egg is cracked with the top half missing and has jagged edges. The egg has light blue, pink, and white stripes running horizontally along the egg.",
+    "tags": ["trans", "egg", "hatching", "chick", "pride"]
+  },
+  {
     "name": "cat-angel",
     "display": "cat angel",
     "alt": "A cat angel face emoji. A yellow cat with a pink nose. There is a light blue halo over their head and their eyes are happy.",
@@ -168,15 +174,9 @@
     "tags": ["cat", "sneezing", "tissue"]
   },
   {
-    "name": "cat monacle",
+    "name": "cat-monocle",
     "display": "cat wearing a monocle",
     "alt": "A cat wearing a monocle emoji. The cat is yellow with a pink nose. The cat is wearing a monocle on their right eye.",
     "tags": ["cat", "monocle"]
-  },
-  {
-    "name": "trans-hatching-chick",
-    "display": "trans hatching chick",
-    "alt": "A trans pride-themed hatching chick emoji. The chick is yellow and sitting in their cracked egg and facing the viewer. The egg is cracked with the top half missing and has jagged edges. The egg has light blue, pink, and white stripes running horizontally along the egg.",
-    "tags": ["trans", "egg", "hatching", "chick", "pride"]
   }
 ]
