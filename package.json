@@ -8,8 +8,7 @@
     "build": "vite-react-ssg build",
     "build-single": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postbuild": "react-snap"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
