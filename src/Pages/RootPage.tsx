@@ -9,7 +9,7 @@ export default function RootPage() {
         <>
             <header>
                 <nav>
-                    <Link className="home" to="/home">
+                    <Link className="home" to="/">
                         <Emoji {...pleadEmoji!} />
                         cat plead emoji
                     </Link>

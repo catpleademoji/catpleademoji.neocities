@@ -13,7 +13,7 @@ export default function NotFoundPage() {
                 <Emoji {...dizzyEmoji!} />
             </div>
             <p>Sorry, the page you were looking for was not found.</p>
-            <Link to="/home">
+            <Link to="/">
                 <span style={{ width: "2rem" }}>
                     <Emoji {...pleadEmoji!} />
                 </span>
