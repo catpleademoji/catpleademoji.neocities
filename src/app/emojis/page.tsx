@@ -1,5 +1,5 @@
-import Emoji from "../Components/Emoji";
-import emojis from "../Emojis";
+import emojis from "../../assets/@emojis.json";
+import { EmojiImage } from "./EmojiImage";
 
 const Categories = {
     "Cats": "cat",
@@ -14,22 +14,23 @@ export default function EmojisPage() {
             {
 
                 Object.entries(Categories)
-                    .map(([display, tag]) => {
+                    .map(([display, category]) => {
                         return {
-                            category: display,
-                            emojis: emojis.filter(emoji => emoji.tags.includes(tag))
+                            display: display,
+                            category: category,
+                            emojis: emojis.filter(emoji => emoji.tags.includes(category))
                         }
                     })
                     .filter(emojisInCategory => emojisInCategory.emojis.length > 0)
                     .map(emojisInCategory => {
                         return (
-                            <div key={emojisInCategory.category}>
-                                <h2>{emojisInCategory.category}</h2>
+                            <div key={emojisInCategory.category} id={emojisInCategory.category}>
+                                <h2>{emojisInCategory.display}</h2>
                                 <div className="emoji-container">
                                     {emojisInCategory.emojis.map(emoji => {
                                         return (
                                             <div key={emoji.name} className="emoji">
-                                                <Emoji {...emoji} />
+                                                <EmojiImage {...emoji} />
                                             </div>
                                         )
                                     })}

@@ -1,3 +1,30 @@
+body {
+  background-color: #ffe190;
+  margin: 0;
+}
+
+header {
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 0.15rem solid #f99637;
+}
+
+footer {
+  padding: 0.5rem;
+}
+
+a {
+  font-weight: 500;
+  color: #4d7fff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #97c7ff;
+}
+
+h1 {
+  font-size: 1.25rem;
+}
 nav {
   display: flex;
 }

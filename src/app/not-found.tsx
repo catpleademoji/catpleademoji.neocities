@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import Emoji from "../Components/Emoji";
-import { useEmoji } from "../Emojis"
+import { useEmoji } from "./emojis/Emojis";
+import { EmojiImage } from "./emojis/EmojiImage";
+import Link from "next/link";
 
 export default function NotFoundPage() {
     const dizzyEmoji = useEmoji("cat-dizzy");
@@ -10,12 +10,12 @@ export default function NotFoundPage() {
         <main style={{ height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
             <h1>404 Not Found</h1>
             <div style={{ width: 320 }}>
-                <Emoji {...dizzyEmoji!} />
+                <EmojiImage {...dizzyEmoji!} />
             </div>
             <p>Sorry, the page you were looking for was not found.</p>
-            <Link to="/">
+            <Link href="/">
                 <span style={{ width: "2rem" }}>
-                    <Emoji {...pleadEmoji!} />
+                    <EmojiImage {...pleadEmoji!} />
                 </span>
                 Home
             </Link>

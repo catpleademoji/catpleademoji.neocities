@@ -1,0 +1,17 @@
+[
+    {
+        "name": "twitter",
+        "display": "Twitter",
+        "url": "https://x.com/catpleademoji"
+    },
+    {
+        "name": "tumblr",
+        "display": "Tumblr",
+        "url": "https://tumblr.com/catpleademoji"
+    },
+    {
+        "name": "bluesky",
+        "display": "Bluesky",
+        "url": "https://bsky.app/profile/catpleademoji.bsky.social"
+    }
+]

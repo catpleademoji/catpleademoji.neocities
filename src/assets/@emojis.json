@@ -175,8 +175,14 @@
   },
   {
     "name": "cat-monocle",
-    "display": "cat wearing a monocle",
+    "display": "cat monocle",
     "alt": "A cat wearing a monocle emoji. The cat is yellow with a pink nose. The cat is wearing a monocle on their right eye.",
     "tags": ["cat", "monocle"]
+  },
+  {
+    "name": "cat-vampire",
+    "display": "cat vampire",
+    "alt": "A vampire cat emoji. The cat is yellow with a pink nose and red eyes. The cat has a red high collar of doom around their neck.",
+    "tags": ["cat", "vampire", "halloween"]
   }
 ]
