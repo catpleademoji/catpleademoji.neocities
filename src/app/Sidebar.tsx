@@ -1,11 +1,7 @@
 import Link from "next/link";
 import socialsJson from "../assets/@socials.json";
-
-type SocialSite = {
-    name: string;
-    display: string;
-    url: string;
-}
+import Image from "next/image";
+import { SocialSite, SocialsList } from "./SocialsList";
 
 const socials = socialsJson as SocialSite[];
 
@@ -20,21 +16,7 @@ export default function Sidebar() {
             <section>
                 <h1>Follow me on</h1>
                 <div>
-                    <ul className="socials-list">
-                        {
-                            socials.map(social => {
-                                return (
-                                    <li key={social.name}>
-                                        <Link href={social.url} target="_blank">
-                                            <img src={`./socials/${social.name}.svg`}>
-                                            </img>
-                                            <span>{social.display}</span>
-                                        </Link>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+                    <SocialsList socials={socials} />
                 </div>
             </section>
             <section>
@@ -48,7 +30,7 @@ export default function Sidebar() {
             </section>
             <section>
                 <Link target="_blank" className="link-item" aria-label="neocities" href="https://neocities.org">
-                    <img alt="hosted by neocities" src="/neocities.png" />
+                    <Image alt="hosted by neocities" src="/neocities.png" />
                 </Link>
             </section>
         </div>
