@@ -184,5 +184,11 @@
     "display": "cat vampire",
     "alt": "A vampire cat emoji. The cat is yellow with a pink nose and red eyes. The cat has a red high collar of doom around their neck.",
     "tags": ["cat", "vampire", "halloween"]
+  },
+  {
+    "name": "cat-square",
+    "display": "cat square",
+    "alt": "A square cat face emoji. The cat is yellow with a pink nose and has a square-shaped head.",
+    "tags": ["cat", "square"]
   }
 ]
