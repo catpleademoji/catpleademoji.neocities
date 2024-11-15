@@ -38,10 +38,6 @@ header>nav>a {
   text-decoration: none;
 }
 
-header>nav>a.home:visited {
-  color: unset;
-}
-
 header img {
   height: 2rem;
   width: 2rem;
