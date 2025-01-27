@@ -1,6 +1,5 @@
 import Link from "next/link";
 import socialsJson from "../assets/@socials.json";
-import Image from "next/image";
 import { SocialSite, SocialsList } from "./SocialsList";
 
 const socials = socialsJson as SocialSite[];
@@ -30,7 +29,7 @@ export default function Sidebar() {
             </section>
             <section>
                 <Link target="_blank" className="link-item" aria-label="neocities" href="https://neocities.org">
-                    <Image alt="hosted by neocities" src="/neocities.png" />
+                    <img alt="hosted by neocities" src="/neocities.png" />
                 </Link>
             </section>
         </div>
