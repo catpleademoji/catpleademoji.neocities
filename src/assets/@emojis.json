@@ -190,5 +190,41 @@
     "display": "cat square",
     "alt": "A square cat face emoji. The cat is yellow with a pink nose and has a square-shaped head.",
     "tags": ["cat", "square"]
+  },
+  {
+    "name": "cat-cowboy",
+    "display": "cat cowboy",
+    "alt": "A cat cowboy emoji. The cat is yellow with a pink nose and is wearing a brown cowboy hat.",
+    "tags": ["cat", "cowboy"]
+  },
+  {
+    "name": "cat-bowtie",
+    "display": "cat bowtie",
+    "alt": "A cat wearing a bowtie emoji. The cat is yellow with a pink nose and is wearing a black bowtie.",
+    "tags": ["cat", "bowtie"]
+  },
+  {
+    "name": "cat-bows",
+    "display": "cat bows",
+    "alt": "A cat wearing bows emoji. The cat is yellow with a pink nose and is wearing a pink bow on each ear.",
+    "tags": ["cat", "bows", "pink"]
+  },
+  {
+    "name": "cat-orange",
+    "display": "cat orange",
+    "alt": "A cat with an orange emoji. The cat is yellow with a pink nose and has an orange atop their head. Their eyes are closed and relaxed.",
+    "tags": ["cat", "orange"]
+  },
+  {
+    "name": "cat-jolly",
+    "display": "cat jolly",
+    "alt": "A cat with a santa hat emoji. The cat is yellow with a pink nose and is wearing a red santa hat.",
+    "tags": ["cat", "jolly", "holiday", "santa hat"]
+  },
+  {
+    "name": "cat-party",
+    "display": "cat party",
+    "alt": "A cat partying emoji. The cat is yellow with a pink nose, wearing a party hat, and blowing a noisemaker. There is colorful confetti floating.",
+    "tags": ["cat", "party", "confetti"]
   }
 ]
