@@ -86,6 +86,11 @@ aside {
   gap: 0.25rem;
 }
 
+.socials-list .social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .emoji-container {
   display: flex;
   flex-wrap: wrap;
@@ -112,6 +117,10 @@ aside {
 
   .main-content {
     flex-direction: column;
+  }
+
+  main {
+    min-height: 150px;
   }
 
   aside {

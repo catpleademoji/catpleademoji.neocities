@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { EmojiModel } from "./Emojis";
 
 type EmojiProps = EmojiModel;
