@@ -192,12 +192,6 @@
     "tags": ["cat", "square"]
   },
   {
-    "name": "cat-cowboy",
-    "display": "cat cowboy",
-    "alt": "A cat cowboy emoji. The cat is yellow with a pink nose and is wearing a brown cowboy hat.",
-    "tags": ["cat", "cowboy"]
-  },
-  {
     "name": "cat-bowtie",
     "display": "cat bowtie",
     "alt": "A cat wearing a bowtie emoji. The cat is yellow with a pink nose and is wearing a black bowtie.",

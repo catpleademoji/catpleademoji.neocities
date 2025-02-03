@@ -4,7 +4,6 @@ body {
 }
 
 header {
-  padding: 1rem 0 0.5rem 0;
   border-bottom: 0.15rem solid #f99637;
 }
 
@@ -12,9 +11,21 @@ footer {
   padding: 0.5rem;
 }
 
+h1 {
+  font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
+
+h3 {
+  font-size: 1.10rem;
+}
+
 a {
   font-weight: 500;
-  color: #4d7fff;
+  color: #0650ff;
   text-decoration: inherit;
 }
 
@@ -22,9 +33,6 @@ a:hover {
   color: #97c7ff;
 }
 
-h1 {
-  font-size: 1.25rem;
-}
 nav {
   display: flex;
 }
@@ -32,10 +40,14 @@ nav {
 header>nav>a {
   display: flex;
   align-items: center;
-  margin: 0 0.5rem;
+  padding: 0.75rem 0.5rem 0.5rem 0.5rem;
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
+}
+
+header>nav>a.active {
+  background-color: #f99637;
 }
 
 header img {

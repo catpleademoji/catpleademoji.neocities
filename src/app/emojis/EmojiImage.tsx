@@ -4,9 +4,10 @@ import { EmojiModel } from "./Emojis";
 type EmojiProps = EmojiModel;
 export function EmojiImage({ name, alt, display }: EmojiProps) {
     return (
-        <Image
+        <img
             src={`./images/${name}.svg`}
-            alt={alt || ""}
+            alt={alt}
+            loading="lazy"
             title={display} />
     );
 }

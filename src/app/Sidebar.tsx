@@ -8,11 +8,6 @@ export default function Sidebar() {
     return (
         <div>
             <section>
-                <h1>About me</h1>
-                <p>hiii!! I'm <span style={{ fontWeight: 500 }}>catpleademoji</span>. I'm a cat-puppy guy :3</p>
-                <p>I make little edits of the cat emojis.</p>
-            </section>
-            <section>
                 <h1>Follow me on</h1>
                 <div>
                     <SocialsList socials={socials} />
