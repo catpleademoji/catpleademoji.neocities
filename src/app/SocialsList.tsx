@@ -18,7 +18,7 @@ export function SocialsList({ socials }: SocialsProps) {
                     return (
                         <li key={social.name}>
                             <Link href={social.url} target="_blank">
-                                <img src={`./socials/${social.name}.svg`} alt={social.display} />
+                                <img src={`/socials/${social.name}.svg`} alt={social.display} />
                                 <span>{social.display}</span>
                             </Link>
                         </li>
