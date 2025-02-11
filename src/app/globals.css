@@ -86,6 +86,11 @@ aside {
   gap: 0.25rem;
 }
 
+.socials-list .social-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .emoji-container {
   display: flex;
   flex-wrap: wrap;
@@ -96,12 +101,19 @@ aside {
   width: 4rem;
   height: 4rem;
   padding: 0.25rem;
+  transition: 0.1s;
 }
 
 .emoji:hover {
   width: 4.5rem;
   height: 4.5rem;
   padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emoji {
+    animation: none;
+  }
 }
 
 @media (max-width: 720px) and (orientation: portrait) {
