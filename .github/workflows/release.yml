@@ -41,46 +41,19 @@ jobs:
 
     - name: Create release
       id: create_release
-      uses: actions/create-release@v1
+      uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.event.inputs.release_version }}
-        release_name: Release ${{ github.event.inputs.release_version }}
+        name: Release ${{ github.event.inputs.release_version }}
         draft: false
         prerelease: false
-
-    - name: Upload 32x32 PNG images
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: cat_plead_emojis@32.zip
-        asset_name: cat_plead_emojis@32.zip
-        asset_content_type: application/zip
-
-    - name: Upload 64x64 PNG images
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: cat_plead_emojis@64.zip
-        asset_name: cat_plead_emojis@64.zip
-        asset_content_type: application/zip
-
-    - name: Upload 128x128 PNG images
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: cat_plead_emojis@128.zip
-        asset_name: cat_plead_emojis@128.zip
-        asset_content_type: application/zip
-
-    - name: Upload original SVG files
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: cat_plead_emojis.zip
-        asset_name: cat_plead_emojis.zip
-        asset_content_type: application/zip
+        files: |
+          cat_plead_emojis@32.zip
+          cat_plead_emojis@64.zip
+          cat_plead_emojis@128.zip
+          cat_plead_emojis.zip
 
     - name: Cleanup
       run: rm -rf converted cat_plead_emojis*.zip
