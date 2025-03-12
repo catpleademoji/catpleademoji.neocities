@@ -1,0 +1,81 @@
+name: Convert SVG to PNG and Publish Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Release version'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: sudo apt-get install -y librsvg2-bin zip
+
+    - name: Convert SVG to PNG (32x32, 64x64, 128x128)
+      run: |
+        mkdir -p converted/32x32 converted/64x64 converted/128x128
+        for file in public/images/*.svg; do
+          base=$(basename "$file" .svg)
+          rsvg-convert -w 32 -h 32 "$file" -o "converted/32x32/${base}.png"
+          rsvg-convert -w 64 -h 64 "$file" -o "converted/64x64/${base}.png"
+          rsvg-convert -w 128 -h 128 "$file" -o "converted/128x128/${base}.png"
+        done
+
+    - name: Create zip files of converted images
+      run: |
+        zip -r cat_plead_emojis@32.zip converted/32x32
+        zip -r cat_plead_emojis@64.zip converted/64x64
+        zip -r cat_plead_emojis@128.zip converted/128x128
+        zip -r cat_plead_emojis.zip public/images/*.svg
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ github.event.inputs.release_version }}
+        release_name: Release ${{ github.event.inputs.release_version }}
+        draft: false
+        prerelease: false
+
+    - name: Upload 32x32 PNG images
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: cat_plead_emojis@32.zip
+        asset_name: cat_plead_emojis@32.zip
+        asset_content_type: application/zip
+
+    - name: Upload 64x64 PNG images
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: cat_plead_emojis@64.zip
+        asset_name: cat_plead_emojis@64.zip
+        asset_content_type: application/zip
+
+    - name: Upload 128x128 PNG images
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: cat_plead_emojis@128.zip
+        asset_name: cat_plead_emojis@128.zip
+        asset_content_type: application/zip
+
+    - name: Upload original SVG files
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: cat_plead_emojis.zip
+        asset_name: cat_plead_emojis.zip
+        asset_content_type: application/zip
+
+    - name: Cleanup
+      run: rm -rf converted cat_plead_emojis*.zip
