@@ -31,10 +31,10 @@ jobs:
 
     - name: Create zip files of converted images
       run: |
-        zip -r cat_plead_emojis@32.zip converted/32x32
-        zip -r cat_plead_emojis@64.zip converted/64x64
-        zip -r cat_plead_emojis@128.zip converted/128x128
-        zip -r cat_plead_emojis.zip public/images/*.svg
+        zip -rj cat_plead_emojis@32.zip converted/32x32
+        zip -rj cat_plead_emojis@64.zip converted/64x64
+        zip -rj cat_plead_emojis@128.zip converted/128x128
+        zip -rj cat_plead_emojis.zip public/images/*.svg
 
     - name: Create release
       id: create_release
