@@ -21,20 +21,21 @@ jobs:
 
     - name: Convert SVG to PNG (32x32, 64x64, 128x128)
       run: |
-        mkdir -p converted/32x32 converted/64x64 converted/128x128
-        for file in public/images/*.svg; do
-          base=$(basename "$file" .svg)
-          rsvg-convert -w 32 -h 32 "$file" -o "converted/32x32/${base}.png"
-          rsvg-convert -w 64 -h 64 "$file" -o "converted/64x64/${base}.png"
-          rsvg-convert -w 128 -h 128 "$file" -o "converted/128x128/${base}.png"
+        mkdir -p out/32x32 out/64x64 out/128x128 out/svg
+        jq -cr '.[] | .name' src/assets/@emojis.json | while read emoji;
+        do
+          rsvg-convert -w 32 -h 32 "public/images/$emoji.svg" -o "out/32x32/${emoji}.png"
+          rsvg-convert -w 64 -h 64 "public/images/$emoji.svg" -o "out/64x64/${emoji}.png"
+          rsvg-convert -w 128 -h 128 "public/images/$emoji.svg" -o "out/128x128/${emoji}.png"
+          cp "public/images/$emoji.svg" "out/svg/$emoji.svg"
         done
 
     - name: Create zip files of converted images
       run: |
-        zip -rj cat_plead_emojis@32.zip converted/32x32
-        zip -rj cat_plead_emojis@64.zip converted/64x64
-        zip -rj cat_plead_emojis@128.zip converted/128x128
-        zip -rj cat_plead_emojis.zip public/images/*.svg
+        zip -rj cat_plead_emojis@32.zip out/32x32
+        zip -rj cat_plead_emojis@64.zip out/64x64
+        zip -rj cat_plead_emojis@128.zip out/128x128
+        zip -rj cat_plead_emojis.zip out/svg
 
     - name: Create release
       id: create_release
