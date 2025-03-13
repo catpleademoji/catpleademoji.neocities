@@ -11,6 +11,9 @@ export default function EmojisPage() {
     return (
         <>
             <h1>Emojis</h1>
+            <div>
+                You can download these emojis as png or svg at my <a target="_blank" href="https://github.com/catpleademoji/catpleademoji.neocities/releases/latest">github</a>. :3
+            </div>
             {
 
                 Object.entries(Categories)
