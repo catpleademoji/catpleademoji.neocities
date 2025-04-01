@@ -220,5 +220,11 @@
     "display": "cat party",
     "alt": "A cat partying emoji. The cat is yellow with a pink nose, wearing a party hat, and blowing a noisemaker. There is colorful confetti floating.",
     "tags": ["cat", "party", "confetti"]
+  },
+  {
+    "name": "cat-plead-alt",
+    "display": "cat plead",
+    "alt": "A cat face emoji with big pleading eyes. The cat is yellow with a pink nose and big black eyes.",
+    "tags": ["cat", "plead"]
   }
 ]
