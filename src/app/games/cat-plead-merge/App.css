@@ -1,3 +1,16 @@
-canvas {
+:root {
+  --game-width: 360px;
+  --game-height: 640px;
+}
+
+#game-canvas {
+  width: var(--game-width);
+  height: var(--game-height);
+  background: #123;
+}
+
+.game-ui-container {
   position: absolute;
+  width: var(--game-width);
+  height: var(--game-height);
 }

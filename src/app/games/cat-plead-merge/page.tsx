@@ -1,70 +1,153 @@
 "use client"
-import { useEffect } from "react"
-import config from "./config";
-import Engine from "./Core/Engine";
-import Game from "./game";
-import "./App.css"
 
-export default function CatPleadMerge() {
-    useEffect(() => {
-        const gameCanvas = document.getElementById("game") as HTMLCanvasElement;
-        const uiCanvas = document.getElementById("ui") as HTMLCanvasElement;
-        const fxCanvas = document.getElementById("fx") as HTMLCanvasElement;
-        const backgroundCanvas = document.getElementById("background") as HTMLCanvasElement;
+import { CatAssetData, CatPleadMerge, ParticleAssetData, SoundEffectAssetData } from "cat-plead-merge"
+import "./App.css";
 
-        const engine = new Engine();
-        const game = new Game({
-            backgroundCanvas,
-            gameCanvas,
-            uiCanvas,
-            fxCanvas,
-            engine,
-        });
-        game.loadResources()
-            .then(() => {
-                game.addSystems();
-                game.run();
-            })
-            .catch(err => {
-                console.error(err);
-            });
+const catData: CatAssetData[] = [
+    {
+        name: "cat-pensive",
+        src: "./assets/images/cats/cat-pensive.png",
+        score: 1,
+    },
+    {
+        name: "cat-angry",
+        src: "./assets/images/cats/cat-angry.png",
+        score: 2,
+    },
+    {
+        name: "cat-tears",
+        src: "./assets/images/cats/cat-tears.png",
+        score: 3,
+    },
+    {
+        name: "cat-sobbing",
+        src: "./assets/images/cats/cat-sobbing.png",
+        score: 4,
+    },
+    {
+        name: "cat-sunglasses",
+        src: "./assets/images/cats/cat-sunglasses.png",
+        score: 6,
+    },
+    {
+        name: "cat-dizzy",
+        src: "./assets/images/cats/cat-dizzy.png",
+        score: 8,
+    },
+    {
+        name: "cat-sleeping",
+        src: "./assets/images/cats/cat-sleeping.png",
+        score: 11,
+    },
+    {
+        name: "cat-three-hearts",
+        src: "./assets/images/cats/cat-three-hearts.png",
+        score: 16,
+    },
+    {
+        name: "cat-flushed",
+        src: "./assets/images/cats/cat-flushed.png",
+        score: 23,
+    },
+    {
+        name: "cat-nerd",
+        src: "./assets/images/cats/cat-nerd.png",
+        score: 32,
+    },
+    {
+        name: "cat-plead",
+        src: "./assets/images/cats/cat-plead.png",
+        score: 45,
+    },
+];
 
-        const onMouseMove = (evt: MouseEvent): void => {
-            game.setState("mouse_x", evt.offsetX);
-            game.setState("mouse_y", evt.offsetY);
-        };
-        uiCanvas.addEventListener("mousemove", onMouseMove);
+const particleData: ParticleAssetData[] = [
+    {
+        name: "sparkles",
+        src: "./assets/images/particles/sparkles.png",
+        size: 20,
+    },
+    {
+        name: "heart",
+        src: "./assets/images/particles/heart.png",
+        size: 16,
+    },
+];
 
-        const onClick = () => {
-            game.setState("mouse_down", true);
-        };
-        uiCanvas.addEventListener("click", onClick);
+const soundEffectData: SoundEffectAssetData[] = [
+    {
+        name: "pop",
+        src: [
+            "./assets/audio/pop-1.txt",
+            "./assets/audio/pop-2.txt",
+            "./assets/audio/pop-3.txt",
+        ],
+    }
+];
 
-        backgroundCanvas.style.background = config.background;
+const themes = [
+    {
+        name: "pride",
+        values: [
+            "#FF000E",
+            "#FF7300",
+            "#FAD220",
+            "#138F3E",
+            "#3558A0",
+            "#880082"
+        ]
+    },
+    {
+        name: "trans",
+        values: [
+            "#5BCEFA",
+            "#EEEEEE",
+            "#F5A9B8"
+        ]
+    },
+    {
+        name: "watermelon",
+        values: [
+            "#D21034",
+            "#141414",
+            "#EEEEEE",
+            "#007229"
+        ]
+    }
+].map(theme => {
+    return {
+        ...theme,
+        values: theme.values.map(value => {
+            const color = parseInt(value.slice(1), 16);
+            return {
+                r: ((color >> 16) & 255) / 255,
+                g: ((color >> 8) & 255) / 255,
+                b: ((color >> 0) & 255) / 255,
+                a: 1,
+            }
+        })
+    };
+});
 
-        return () => {
-            uiCanvas.removeEventListener("mousemove", onMouseMove);
-            uiCanvas.removeEventListener("click", onClick);
-        }
-    }, []);
+export default function CatPleadMergePage() {
     return (
         <>
             <h1>cat plead merge</h1>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 40 }}>
-                <div style={{ width: 360, height: 640 }}>
-                    <canvas id="background"></canvas>
-                    <canvas id="game"></canvas>
-                    <canvas id="fx"></canvas>
-                    <canvas id="ui"></canvas>
-                </div>
+                <CatPleadMerge
+                    id="game-canvas"
+                    assets={{
+                        cats: catData,
+                        particles: particleData,
+                        soundEffects: soundEffectData,
+                    }}
+                    theme={themes[Math.floor(Math.random() * themes.length)]}
+                />
             </div>
             <div>A Suika-like game featuring cat emojis :3</div>
             <div>
                 Merge two or more of the same cat to get a bigger cat!
                 Try not to let them reach the top!
-            </div>
-            <div>
-                Made in javascript
             </div>
         </>
     )
