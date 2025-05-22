@@ -14,3 +14,17 @@
   width: var(--game-width);
   height: var(--game-height);
 }
+
+#score-label {
+  margin-left: 4px;
+}
+
+#score-label, #score-value {
+  color: white;
+  margin-top: 4px;
+}
+
+#restart-button {
+  background-color: #ffe190;
+  font-size: 1rem;
+}
