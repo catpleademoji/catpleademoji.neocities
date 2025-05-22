@@ -135,7 +135,6 @@ export default function CatPleadMergePage() {
             <h1>cat plead merge</h1>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 40 }}>
                 <CatPleadMerge
-                    id="game-canvas"
                     assets={{
                         cats: catData,
                         particles: particleData,
